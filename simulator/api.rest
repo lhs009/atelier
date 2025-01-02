@@ -1,0 +1,43 @@
+@baseUrl=http://localhost:3000
+# @baseUrl=http://dev-atelier.tildatildatilda.com:3000
+# @baseUrl=https://prod-atelier.tildatildatilda.com:43000
+
+### 로그인
+POST {{baseUrl}}/users/login
+Content-Type: application/json
+
+{
+  "email": "user11@lgresearch.ai",
+  "password": "1234"
+}
+
+### 사용자 리스트
+GET {{baseUrl}}/users
+
+### 프롬프트 리스트
+GET {{baseUrl}}/tests/1?offset=0&limit=100
+
+### 테스트 결과 저장
+POST {{baseUrl}}/tests/logs
+Content-Type: application/json
+
+{
+  "promptId": 2492,
+  "logs": [
+     [9965, 9966, 1, 1],
+     [9966, 9967, 0, 0],
+     [9966, 9968, 1, 1]
+  ]
+}
+
+### 테스터의 현재 완료한 테스트 횟수
+GET {{baseUrl}}/users/progress?caseId=1
+
+### 테스트 케이스 리스트
+GET {{baseUrl}}/cases
+
+### S3 이미지 받아오기
+GET {{baseUrl}}/images/1
+
+### db 데이터 리스트
+GET {{baseUrl}}/datas
